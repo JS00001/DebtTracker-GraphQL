@@ -7,7 +7,6 @@ import typeDefs from './schema';
 const server = new ApolloServer({
 	typeDefs,
 	resolvers,
-	introspection: true,
 	context: async ({ req }) => {
 		const authedUser = await getUser(req);
 

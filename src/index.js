@@ -1,5 +1,6 @@
 import { success, info } from 'consola';
 import express from 'express';
+import helmet from 'helmet';
 import cors from 'cors';
 
 import server from './server';
@@ -13,6 +14,12 @@ async function startServer() {
 	const app = express();
 
 	app.use(cors());
+	app.use(
+		helmet({
+			contentSecurityPolicy: config.IS_PROD,
+			crossOriginEmbedderPolicy: config.IS_PROD,
+		})
+	);
 	app.use(bodyParser.urlencoded({ extended: false }));
 
 	await database.connect();

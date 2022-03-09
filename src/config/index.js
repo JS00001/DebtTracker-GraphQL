@@ -2,6 +2,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const config = {
+	IS_PROD: process.env.NODE_ENV === 'production',
 	NODE_ENV: process.env.NODE_ENV || 'development',
 	PORT: parseInt(process.env.PORT) || 3000,
 	JWT_SECRET: process.env.JWT_SECRET,

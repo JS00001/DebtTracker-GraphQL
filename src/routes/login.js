@@ -1,6 +1,6 @@
 import User from '../models/User';
 
-export default async function (req, res) {
+export default async (req, res) => {
 	const { username, password } = req.body;
 
 	if (!username || !password) {
@@ -31,4 +31,4 @@ export default async function (req, res) {
 		statusCode: 200,
 		token,
 	});
-}
+};
